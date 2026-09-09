@@ -1,0 +1,8 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "estudio-criativo-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-09",
+  "send_metrics": false,
+  "dev": { "ip": "127.0.0.1", "port": 8787 }
+}

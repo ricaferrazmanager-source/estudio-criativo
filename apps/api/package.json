@@ -1,0 +1,12 @@
+{
+  "name": "@estudio-criativo/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local --ip 127.0.0.1 --port 8787",
+    "types": "node -e \"require('node:fs').mkdirSync('.wrangler', { recursive: true })\" && wrangler types .wrangler/runtime.d.ts",
+    "typecheck": "pnpm types && tsc -p tsconfig.json",
+    "test": "vitest run"
+  }
+}

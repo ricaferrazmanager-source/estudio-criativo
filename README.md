@@ -1,48 +1,44 @@
 # Estúdio Criativo
 
-Projeto para geração e edição de imagens por API, organizado em torno de Product DNA, Brand DNA, Creative DNA, Prompt Compiler e Model Router, com abertura para novos modelos e provedores.
+Projeto para geração e edição de imagens por API, com Product DNA, Brand DNA, Creative DNA, Prompt Compiler e Model Router.
 
-## Estado atual
-Preparação documental do repositório. Nenhuma funcionalidade, aplicação, dependência ou infraestrutura foi implementada nesta etapa.
-O documento de planejamento aprovado ainda precisa ser disponibilizado e consultado antes da implementação funcional.
+## O que já funciona
 
-## Estrutura
-```text
-AGENTS.md
-README.md
-.gitignore
-.env.example
-docs/
-  ARCHITECTURE.md
-  PROJECT_STATE.md
-  ROADMAP.md
-  CHANGELOG.md
-  KNOWN_ISSUES.md
-  LEARNINGS.md
-  HANDOFF.md
-```
+A primeira base local responde em `/health` e possui três testes automáticos. Ainda não há interface visual, geração de imagens, autenticação ou conexão com serviços externos. Esta entrega é somente o primeiro incremento do M0.
 
-Leia `AGENTS.md`, `docs/PROJECT_STATE.md` e `docs/HANDOFF.md` antes de alterar o projeto.
+## Executar no computador
 
-## Tecnologias direcionadoras
-- Supabase/PostgreSQL.
-- Cloudflare R2.
-- Cloudflare Workers/Queues.
-- APIs de geração e edição de imagens, com suporte extensível a modelos e provedores.
-- Git e GitHub privado para versionamento e continuidade.
-
-Detalhes, responsabilidades e decisões pendentes estão em `docs/ARCHITECTURE.md`.
-
-## Conexão futura com GitHub privado
-Crie um repositório **privado e vazio**, sem inicializar README, licença ou `.gitignore`. Confirme o proprietário e a URL antes de executar, substituindo os marcadores:
+Requisitos: Node.js 24 e pnpm 11.19.0. Não é necessário login em provedores nem arquivo `.env` para esta base.
 
 ```sh
-git remote add origin git@github.com:PROPRIETARIO/REPOSITORIO.git
-git remote -v
-git push -u origin main
+pnpm install --frozen-lockfile
+pnpm check
+pnpm dev
 ```
 
-Esses comandos são instruções para uma etapa posterior; não significam que um remoto foi configurado ou que houve push. A privacidade é configurada no GitHub, não no Git local. Use autenticação segura sem incorporar tokens à URL.
+Abra http://127.0.0.1:8787/health. A resposta esperada é:
 
-## Configuração
-`.env.example` documenta apenas nomes iniciais de variáveis e não contém credenciais. Os nomes serão confirmados durante a implementação. Ainda não há comandos de instalação, execução ou testes funcionais.
+```json
+{"status":"ok","project":"Estúdio Criativo"}
+```
+
+O servidor fica restrito ao computador local. Use `x` no terminal do servidor para encerrá-lo.
+
+## Verificações
+
+- `pnpm lint`: revisão automatizada do código.
+- `pnpm typecheck`: geração local dos tipos do Worker e validação TypeScript.
+- `pnpm test`: três testes no runtime Workers (saúde, endereço inexistente e método não permitido).
+- `pnpm check`: executa as três verificações acima.
+
+## Continuidade e organização
+
+Antes de alterar o projeto, leia `AGENTS.md`, `docs/PROJECT_STATE.md` e `docs/HANDOFF.md`.
+
+A base está em `apps/api`; dependências e configurações compartilhadas ficam na raiz. `pnpm-lock.yaml` registra as versões instaladas. Tipos gerados em `apps/api/.wrangler` e dependências não são versionados.
+
+O planejamento Word permanece na raiz, sem alterações e não versionado. `docs/ARCHITECTURE.md` e `docs/ROADMAP.md` continuam como registros preliminares; não foram reescritos neste incremento.
+
+O remoto `origin` já está configurado para o repositório do Estúdio Criativo, com branch `main` e upstream `origin/main`. Esta entrega é local; não houve push ou deploy.
+
+`.env.example` permanece com valores vazios. Nunca adicione credenciais reais a arquivos versionados.
