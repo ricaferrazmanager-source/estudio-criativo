@@ -41,7 +41,7 @@ A interface Next.js/React está em `apps/web` e consulta a API pelo caminho loca
 
 O planejamento Word permanece na raiz, sem alterações e não versionado. `docs/ARCHITECTURE.md` e `docs/ROADMAP.md` continuam como registros preliminares; não foram reescritos neste incremento.
 
-O remoto `origin` já está configurado para o repositório do Estúdio Criativo, com branch `main` e upstream `origin/main`. Esta entrega é local; não houve push ou deploy.
+O remoto `origin` já está configurado para o repositório do Estúdio Criativo, com branch `main` e upstream `origin/main`. Os commits da base, da tela e do CI foram enviados com autorização; não houve deploy.
 
 `.env.example` permanece com valores vazios. Nunca adicione credenciais reais a arquivos versionados.
 
@@ -49,6 +49,6 @@ O remoto `origin` já está configurado para o repositório do Estúdio Criativo
 
 O arquivo `.github/workflows/checks.yml` prepara verificação em pushes para main, pull requests destinados a main e execução manual. Instala as versões do lockfile e o Chromium, executa `pnpm check` e `pnpm build`, com acesso somente de leitura ao repositório. Não usa segredos de provedores e não publica a aplicação.
 
-Configuração validada localmente com actionlint 1.7.12; testes e build passaram no Windows. A execução em Ubuntu no GitHub ainda precisa ser confirmada após um push autorizado. Actions deve estar habilitado no repositório. Não foram alteradas proteções de branch.
+Configuração validada localmente com actionlint 1.7.12; testes e build passaram no Windows. A primeira execução em Ubuntu no GitHub passou após o push autorizado: [resultado em 4c4b215](https://github.com/ricaferrazmanager-source/estudio-criativo/actions/runs/34404329453). Actions está habilitado no repositório. Não foram alteradas proteções de branch.
 
 Referências oficiais: [setup-node](https://github.com/actions/setup-node), [pnpm/action-setup v4](https://github.com/pnpm/action-setup/tree/v4) e [Playwright em CI](https://playwright.dev/docs/ci). Ações fixadas por SHA, conferido nos respectivos repositórios oficiais.

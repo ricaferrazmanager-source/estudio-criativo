@@ -28,3 +28,8 @@
 - Ações fixadas por SHA, acesso somente de leitura, limite de duração e nenhuma etapa de publicação.
 - actionlint 1.7.12, sete testes e build passaram localmente; execução remota pendente de push autorizado.
 - Versão funcional 0.2.0 preservada; sem alterações na tela, infraestrutura, planejamento ou instruções principais.
+
+## 2026-09-09 — envio e primeira checagem no GitHub
+- Enviados com autorização os commits 3f2a232, 15330ec e 4c4b215 para origin/main.
+- Execução 34404329453 concluiu com sucesso no Ubuntu: instalação, verificações, testes e compilação.
+- Continuidade atualizada; sem deploy, credenciais adicionadas ou alteração do planejamento.
