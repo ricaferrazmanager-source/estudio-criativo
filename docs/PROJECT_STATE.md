@@ -1,30 +1,23 @@
 # Estado do projeto
 
-Atualizado em: 2026-09-09. Versão da base local: 0.1.0.
+Atualizado em: 2026-09-09. Versão local: 0.2.0. M0 parcial.
 
-## Implementado e validado
+## Implementado
 
-Primeiro incremento aprovado do M0: workspace pnpm, API mínima TypeScript para Workers e verificações locais. `GET /health` retorna HTTP 200 com o nome Estúdio Criativo; endereços desconhecidos retornam 404; métodos diferentes de GET em `/health` retornam 405.
+API Workers em apps/api e primeira tela Next.js/React em apps/web, conforme o incremento aprovado. Visão geral, explicações e próximas etapas; consulta real da base com estados de espera, sucesso, erro e nova tentativa. Nome oficial: Estúdio Criativo.
 
-- `pnpm check`: lint e typecheck passaram; 3 testes passaram no runtime Workers.
-- Servidor iniciado com `pnpm dev`; requisição real a `127.0.0.1:8787/health` confirmou HTTP 200 e o conteúdo esperado. Servidor encerrado após a verificação.
-- Testes foram executados antes da implementação da rota: dois falharam pelo comportamento ainda ausente; passaram após a implementação.
-- Node 24.19.0, pnpm 11.19.0; versões das dependências registradas no lockfile.
+## Validado
 
-## Git e arquivos preservados
+Lint e TypeScript passaram. Três testes da API e quatro testes de navegador passaram. Build da interface passou. Consulta real pelo botão confirmou a API local. Capturas de computador (1440 px) e celular (390 px) inspecionadas, sem transbordamento horizontal. O navegador integrado estava indisponível neste ambiente; a conferência utilizou Chromium pelo Playwright.
 
-Baseline publicada anterior: `6c55188`. Este incremento recebe commit local; consultar `git log -1` para seu identificador final. Não houve push ou deploy.
+## Git e preservação
 
-AGENTS.md, arquitetura, roadmap, exemplo de ambiente e planejamento Word foram preservados. O Word continua na raiz, não versionado; não adicionar automaticamente. As alterações documentais deste incremento ficam restritas a README, estado, changelog e handoff.
+Último commit anterior validado: 3f2a232. Baseline publicada: 6c55188. O incremento 0.2.0 recebe commit local próprio; consultar git log -1 para o identificador. Sem push/deploy. AGENTS.md, arquitetura, roadmap e Word preservados; Word na raiz, não versionado. Não reaplicar f1d3d9f.
 
-## Ainda não implementado
+## Limites e próximo passo
 
-Interface visual, CI remoto, autenticação, banco, storage, filas e chamadas de IA. M0 não está concluído. Não foram criadas contas, recursos externos ou credenciais.
-
-## Próximo passo proposto
-
-Apresentar e obter aprovação do próximo incremento antes de ampliar o escopo. Uma opção é criar a primeira tela local, para permitir navegação visual pelo Estúdio Criativo.
+Ainda não há autenticação, banco, storage, filas, geração ou edição de imagens. Nenhum serviço pago ou segredo necessário. Próximo passo: usuário revisar a tela e aprovar um incremento pequeno antes de ampliar funcionalidades.
 
 ## Ambiente
 
-O terminal do sandbox apresentou falha interna; execução autorizada fora dele funcionou. Git usa confiança por comando para `C:/POLIVENDA/estudio-criativo`, sem alterar configuração global. A interrupção anterior por limite de uso foi superada nesta retomada.
+Node 24, pnpm 11.19.0. pnpm dev inicia interface em 127.0.0.1:3000 e API em 127.0.0.1:8787. Servidores mantidos disponíveis ao final para revisão local; podem precisar ser reiniciados em nova sessão. O terminal exige execução autorizada fora do sandbox neste ambiente; confiança Git limitada a cada comando. Capturas e resultados de testes ficam em node_modules/.cache, ignorado.

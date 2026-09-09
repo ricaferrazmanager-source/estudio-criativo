@@ -1,6 +1,6 @@
 {
   "name": "estudio-criativo",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.19.0",
@@ -8,16 +8,20 @@
     "node": ">=24 <25"
   },
   "scripts": {
-    "dev": "pnpm --filter @estudio-criativo/api dev",
-    "lint": "biome lint apps/api/src apps/api/test apps/api/vitest.config.ts",
-    "typecheck": "pnpm --filter @estudio-criativo/api typecheck",
-    "test": "pnpm --filter @estudio-criativo/api test",
-    "check": "pnpm lint && pnpm typecheck && pnpm test"
+    "dev": "pnpm --parallel --filter \"./apps/*\" dev",
+    "lint": "biome lint apps/api/src apps/api/test apps/api/vitest.config.ts apps/web/app apps/web/test playwright.config.ts",
+    "typecheck": "pnpm --filter @estudio-criativo/api typecheck && pnpm --filter @estudio-criativo/web typecheck",
+    "test": "pnpm --filter @estudio-criativo/api test && playwright test",
+    "check": "pnpm lint && pnpm typecheck && pnpm test",
+    "build": "pnpm --filter @estudio-criativo/web build"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.12",
     "@cloudflare/vitest-plugin": "1.1.6",
+    "@playwright/test": "1.63.0",
     "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
     "typescript": "7.0.2",
     "vitest": "4.1.0",
     "wrangler": "4.130.0"

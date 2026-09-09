@@ -16,3 +16,9 @@
 - Confirmada resposta HTTP 200 no servidor local; servidor encerrado após o teste.
 - Atualizados README e registros de estado/continuidade deste incremento aprovado.
 - Sem interface visual, integrações pagas, infraestrutura, push ou deploy. Planejamento original preservado na raiz.
+
+## 0.2.0 — 2026-09-09 — primeira tela local
+- Adicionada interface Next.js/React com visão geral, explicações e próximas etapas.
+- Consulta real da base com espera, sucesso, erro e nova tentativa, sem serviços externos.
+- Quatro testes de navegador, três da API, lint, typecheck e build validados; visual conferido em computador e celular.
+- Atualizados README, estado e handoff; sem push/deploy ou alteração do planejamento.
