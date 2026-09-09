@@ -1,0 +1,36 @@
+# Ambientes e segredos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets/
+.secrets/
+
+# Dependências, builds e caches
+node_modules/
+dist/
+build/
+coverage/
+.next/
+.nuxt/
+.cache/
+.turbo/
+.wrangler/
+.supabase/
+supabase/.temp/
+supabase/.branches/
+__pycache__/
+.venv/
+
+# Arquivos locais e temporários
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
