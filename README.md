@@ -44,3 +44,11 @@ O planejamento Word permanece na raiz, sem alterações e não versionado. `docs
 O remoto `origin` já está configurado para o repositório do Estúdio Criativo, com branch `main` e upstream `origin/main`. Esta entrega é local; não houve push ou deploy.
 
 `.env.example` permanece com valores vazios. Nunca adicione credenciais reais a arquivos versionados.
+
+## Checagem automática no GitHub
+
+O arquivo `.github/workflows/checks.yml` prepara verificação em pushes para main, pull requests destinados a main e execução manual. Instala as versões do lockfile e o Chromium, executa `pnpm check` e `pnpm build`, com acesso somente de leitura ao repositório. Não usa segredos de provedores e não publica a aplicação.
+
+Configuração validada localmente com actionlint 1.7.12; testes e build passaram no Windows. A execução em Ubuntu no GitHub ainda precisa ser confirmada após um push autorizado. Actions deve estar habilitado no repositório. Não foram alteradas proteções de branch.
+
+Referências oficiais: [setup-node](https://github.com/actions/setup-node), [pnpm/action-setup v4](https://github.com/pnpm/action-setup/tree/v4) e [Playwright em CI](https://playwright.dev/docs/ci). Ações fixadas por SHA, conferido nos respectivos repositórios oficiais.

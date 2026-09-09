@@ -12,12 +12,18 @@ Lint e TypeScript passaram. Três testes da API e quatro testes de navegador pas
 
 ## Git e preservação
 
-Último commit anterior validado: 3f2a232. Baseline publicada: 6c55188. O incremento 0.2.0 recebe commit local próprio; consultar git log -1 para o identificador. Sem push/deploy. AGENTS.md, arquitetura, roadmap e Word preservados; Word na raiz, não versionado. Não reaplicar f1d3d9f.
+Último commit funcional validado: 15330ec (0.2.0). Baseline publicada: 6c55188. A configuração de CI recebe commit local próprio; consultar git log -1 para o identificador. Sem push/deploy. AGENTS.md, arquitetura, roadmap e Word preservados; Word na raiz, não versionado. Não reaplicar f1d3d9f.
 
 ## Limites e próximo passo
 
-Ainda não há autenticação, banco, storage, filas, geração ou edição de imagens. Nenhum serviço pago ou segredo necessário. Próximo passo: usuário revisar a tela e aprovar um incremento pequeno antes de ampliar funcionalidades.
+Ainda não há autenticação, banco, storage, filas, geração ou edição de imagens. Nenhum serviço pago ou segredo necessário. Próximo passo: obter autorização para enviar os commits locais e conferir a primeira execução do CI no GitHub. Novas funcionalidades exigem incremento definido e aprovado.
 
 ## Ambiente
 
 Node 24, pnpm 11.19.0. pnpm dev inicia interface em 127.0.0.1:3000 e API em 127.0.0.1:8787. Servidores mantidos disponíveis ao final para revisão local; podem precisar ser reiniciados em nova sessão. O terminal exige execução autorizada fora do sandbox neste ambiente; confiança Git limitada a cada comando. Capturas e resultados de testes ficam em node_modules/.cache, ignorado.
+
+## Checagem automática preparada
+
+`.github/workflows/checks.yml`: push/PR para main e execução manual; Ubuntu 24.04, Node 24.19.0, pnpm conforme package.json, instalação frozen-lockfile, Chromium com dependências, pnpm check e pnpm build. Permissão contents: read, credenciais de checkout não persistidas, timeout 20 minutos, ações fixadas por SHA. Sem deploy ou segredos de provedores.
+
+Validação deste incremento: actionlint 1.7.12 sem erros; pnpm install --frozen-lockfile, lint, typecheck, 3 testes API, 4 testes de navegador e build passaram localmente no Windows. O ambiente Ubuntu do GitHub ainda não foi executado: depende de push autorizado e Actions habilitado. Versão funcional permanece 0.2.0; M0 continua parcial.

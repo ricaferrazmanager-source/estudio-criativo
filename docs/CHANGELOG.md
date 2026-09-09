@@ -22,3 +22,9 @@
 - Consulta real da base com espera, sucesso, erro e nova tentativa, sem serviços externos.
 - Quatro testes de navegador, três da API, lint, typecheck e build validados; visual conferido em computador e celular.
 - Atualizados README, estado e handoff; sem push/deploy ou alteração do planejamento.
+
+## 2026-09-09 — checagem automática preparada
+- Adicionado workflow GitHub Actions para main, pull requests e execução manual: instalação fixada, lint, tipos, testes e build.
+- Ações fixadas por SHA, acesso somente de leitura, limite de duração e nenhuma etapa de publicação.
+- actionlint 1.7.12, sete testes e build passaram localmente; execução remota pendente de push autorizado.
+- Versão funcional 0.2.0 preservada; sem alterações na tela, infraestrutura, planejamento ou instruções principais.
