@@ -4,11 +4,11 @@ Projeto para geração e edição de imagens por API, com Product DNA, Brand DNA
 
 ## O que já funciona
 
-A versão 0.2.0 apresenta a primeira tela local: visão geral, explicações, próximas etapas e um botão que verifica a base. Ainda não há geração de imagens, autenticação ou serviços externos. M0 continua parcial.
+A versão 0.5.0 inclui login por convite, saída, proteção do estúdio e formulário de convites para administrador. A ativação das contas e do envio real de e-mails no Supabase está pendente. A opção Produtos inclui preenchimento, revisão, salvamento da primeira versão e consulta, testados localmente. Salvamento real desativado até aplicar/homologar o banco e o vínculo de equipe; sem fotos. Geração de imagens ainda não existe; M0 continua parcial.
 
 ## Executar no computador
 
-Requisitos: Node.js 24 e pnpm 11.19.0. Não é necessário login em provedores nem arquivo `.env` para esta base.
+Requisitos: Node.js 24 e pnpm 11.19.0. Para usar o login real, configurar apps/web/.env.local conforme .env.example. Os testes usam provedor simulado e não precisam de chaves reais.
 
 ```sh
 pnpm install --frozen-lockfile
@@ -17,7 +17,7 @@ pnpm check
 pnpm dev
 ```
 
-Abra http://127.0.0.1:3000 para usar a tela. A API continua em http://127.0.0.1:8787/health, com a resposta:
+Abra http://127.0.0.1:3000 para entrar. Sem sessão válida, a página direciona ao login. A API continua em http://127.0.0.1:8787/health, com a resposta:
 
 ```json
 {"status":"ok","project":"Estúdio Criativo"}
@@ -29,7 +29,7 @@ O servidor fica restrito ao computador local. Use Ctrl+C no terminal para encerr
 
 - `pnpm lint`: revisão automatizada do código.
 - `pnpm typecheck`: geração local dos tipos do Worker e validação TypeScript.
-- `pnpm test`: três testes da API e quatro testes de navegador (navegação, sucesso, indisponibilidade com nova tentativa e celular).
+- `pnpm test`: treze testes de banco em memória, três testes da API e vinte e três testes de navegador (autenticação, autorização, convite, senha, navegação e celular), com serviço de identidade simulado.
 - `pnpm check`: executa as três verificações acima.
 - `pnpm build`: compila a interface para validar sua distribuição.
 
@@ -52,3 +52,11 @@ O arquivo `.github/workflows/checks.yml` prepara verificação em pushes para ma
 Configuração validada localmente com actionlint 1.7.12; testes e build passaram no Windows. A primeira execução em Ubuntu no GitHub passou após o push autorizado: [resultado em 4c4b215](https://github.com/ricaferrazmanager-source/estudio-criativo/actions/runs/34404329453). Actions está habilitado no repositório. Não foram alteradas proteções de branch.
 
 Referências oficiais: [setup-node](https://github.com/actions/setup-node), [pnpm/action-setup v4](https://github.com/pnpm/action-setup/tree/v4) e [Playwright em CI](https://playwright.dev/docs/ci). Ações fixadas por SHA, conferido nos respectivos repositórios oficiais.
+
+## Ativação do acesso por convite
+
+Consulte [a decisão e o procedimento de configuração](docs/DECISIONS/0001-invite-only-auth.md). Somente pessoas convidadas e com e-mail confirmado entram. O administrador ainda precisa ser ativado; configurar URLs, template do convite e envio de e-mails antes de homologar com contas reais. Nunca colocar a chave administrativa em variáveis NEXT_PUBLIC ou no Git.
+
+## Ativação do catálogo
+
+STUDIO_CATALOG_ENABLED vazio mantém o recurso desativado. Consulte docs/DECISIONS/0004-product-persistence.md antes de ativar. Nenhuma migration remota executada; a aprovação desta implementação local não autoriza aplicação no Supabase.

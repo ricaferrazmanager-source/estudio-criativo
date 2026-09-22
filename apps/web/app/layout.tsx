@@ -1,4 +1,5 @@
 import "./globals.css";
+import { EmailLinkReceiver } from "./email-link-receiver";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  return <html lang="pt-BR"><body>{children}</body></html>;
+  return <html lang="pt-BR"><body><EmailLinkReceiver>{children}</EmailLinkReceiver></body></html>;
 }

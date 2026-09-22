@@ -1,4 +1,11 @@
 import { expect, test } from "@playwright/test";
+test.beforeEach(async ({ page }) => {
+  await page.goto("/login");
+  await page.getByLabel("E-mail", { exact: true }).fill("member@example.test");
+  await page.getByLabel("Senha", { exact: true }).fill("example-test-password");
+  await page.getByRole("button", { name: "Entrar", exact: true }).click();
+  await expect(page).toHaveURL(/\/$/);
+});
 
 test("apresenta a tela e permite navegar pelas explicações", async ({ page }) => {
   await page.goto("/");
