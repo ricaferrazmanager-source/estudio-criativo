@@ -15,7 +15,7 @@
 - Higgsfield Claude v1.1: https://drive.google.com/file/d/192qvywEODEH489RkXlaxTwqpKx6wFyHq/view
 - Kit completo + instruções do Projeto + exemplos e QA: https://drive.google.com/file/d/16cXiY2h3KeWFZ0rHpLaHQfvBN_R1lv0c/view
 
-Arquivos enviados em 17/11/2026 para a pasta Estudio_Criativo do Drive Polivenda_IA. Confirmados por metadados remotos: 30.737 bytes, 12.886 bytes e 100.071 bytes, respectivamente. Não se afirma comparação criptográfica com os bytes remotos.
+Arquivos enviados em 17/11/2026 para a pasta Estudio_Criativo do Drive Polivenda_IA. Confirmados por metadados remotos: 30.737 bytes, 12.886 bytes e 100.121 bytes, respectivamente. Não se afirma comparação criptográfica com os bytes remotos.
 
 ## Problemas reais que motivaram esta revisão
 
